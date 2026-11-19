@@ -25,7 +25,7 @@ export function formatDateParts(iso: string): { day: string; month: string; week
 
 export function formatTime(t: string): string {
   if (!t || !/^\d{2}:\d{2}$/.test(t)) return t || "—";
-  const [h, m] = t.split(":").map(Number);
+  const [h = 0, m = 0] = t.split(":").map(Number);
   const suffix = h >= 12 ? "PM" : "AM";
   const hour = h % 12 === 0 ? 12 : h % 12;
   return `${hour}:${String(m).padStart(2, "0")} ${suffix}`;

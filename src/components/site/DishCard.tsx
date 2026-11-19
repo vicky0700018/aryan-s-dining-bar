@@ -6,7 +6,7 @@ import { SmartImage } from "./SmartImage";
 import { VegMark } from "./bits";
 import { Modal } from "./Modal";
 
-export function DishCard({ item, categoryName, onView }: { item: MenuItem; categoryName?: string; onView: () => void }) {
+export function DishCard({ item, categoryName, onView }: { item: MenuItem; categoryName?: string | undefined; onView: () => void }) {
   return (
     <article className="group card-lux flex flex-col overflow-hidden transition-transform duration-500 hover:-translate-y-1.5">
       <div className="img-zoom relative aspect-[4/3]">
@@ -54,7 +54,7 @@ export function DishModal({
   onClose,
 }: {
   item: MenuItem | null;
-  categoryName?: string;
+  categoryName?: string | undefined;
   onClose: () => void;
 }) {
   return (

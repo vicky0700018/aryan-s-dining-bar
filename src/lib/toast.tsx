@@ -5,7 +5,7 @@ type Variant = "success" | "error" | "info";
 interface ToastItem {
   id: number;
   title: string;
-  description?: string;
+  description?: string | undefined;
   variant: Variant;
 }
 
@@ -16,7 +16,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
 
   const toast = useCallback((t: Omit<ToastItem, "id" | "variant"> & { variant?: Variant }) => {
     const id = Date.now() + Math.random();
-    setItems((list) => [...list, { id, variant: "success", ...t }].slice(-4));
+    setItems((list) => [...list, { id, ...t, variant: t.variant ?? ("success" as Variant) }].slice(-4));
     window.setTimeout(() => setItems((list) => list.filter((x) => x.id !== id)), 3800);
   }, []);
 

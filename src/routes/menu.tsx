@@ -8,12 +8,12 @@ import { DishCard, DishModal } from "@/components/site/DishCard";
 import { cn } from "@/lib/utils";
 
 interface MenuSearch {
-  category?: string;
+  category?: string | undefined;
 }
 
 export const Route = createFileRoute("/menu")({
   validateSearch: (search: Record<string, unknown>): MenuSearch => ({
-    category: typeof search.category === "string" && search.category ? search.category : undefined,
+    category: typeof search["category"] === "string" && search["category"] ? search["category"] : undefined,
   }),
   head: () => ({
     meta: [

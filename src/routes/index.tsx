@@ -277,7 +277,7 @@ function Home() {
           <SectionHeading eyebrow="Why Choose Aryan's?" title="Made for families, friends and fans" />
           <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
             {h.whyChoose.map((w, i) => {
-              const Icon = WHY_ICONS[i % WHY_ICONS.length];
+              const Icon = WHY_ICONS[i % WHY_ICONS.length] ?? UtensilsCrossed;
               return (
                 <div key={w.id} className="group bg-background p-8 transition-colors duration-500 hover:bg-card md:p-10">
                   <span className="flex h-14 w-14 items-center justify-center rounded-full border border-border-strong text-gold transition-all duration-500 group-hover:bg-gold group-hover:text-primary-foreground">
